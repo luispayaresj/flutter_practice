@@ -8,11 +8,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Center(
-          child: Text('CAR IV'),
+    return const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold (
           
-    ));
+          body: Center(
+            child: Text("CAR IV - Luis") ,)
+        )
+        );
   }
 }
 
