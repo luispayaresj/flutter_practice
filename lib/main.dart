@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/view/home_view.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold (
-          
-          body: Center(
-            child: Text("CAR IV - Luis") ,)
-        )
-        );
+      debugShowCheckedModeBanner: false,
+      home: HomeView(),
+    );
   }
 }
 
