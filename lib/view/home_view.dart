@@ -13,6 +13,7 @@ class HomeView extends StatelessWidget {
       body: const Center(
         child: Text('CAR IV - Luis Payares'),
       ),
+        backgroundColor: Colors.lightGreen
     );
   }
 }
