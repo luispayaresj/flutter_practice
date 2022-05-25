@@ -8,10 +8,9 @@ class CountScreen extends StatefulWidget {
 }
 
 class _CountScreenState extends State<CountScreen> {
+  int count = 10;
   @override
   Widget build(BuildContext context) {
-    int count = 00;
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Counter'),
@@ -23,20 +22,17 @@ class _CountScreenState extends State<CountScreen> {
           children: <Widget>[
             const Text('Number Push',
                 style: TextStyle(color: Colors.blue, fontSize: 35)),
-            // ignore: prefer_const_constructors
-            Text('$count', style: TextStyle(fontSize: 30))
+            Text('$count', style: const TextStyle(fontSize: 30))
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.access_alarms),
+          child: const Icon(Icons.add),
           onPressed: () {
-            showMessage();
+            setState(() {
+              count++;
+            });
           }),
     );
-  }
-
-  void showMessage() {
-    print('Hi Luis, and CAR IV');
   }
 }
