@@ -8,7 +8,7 @@ class CountScreen extends StatefulWidget {
 }
 
 class _CountScreenState extends State<CountScreen> {
-  int count = 10;
+  int count = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,13 +26,45 @@ class _CountScreenState extends State<CountScreen> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: () {
-            setState(() {
-              count++;
-            });
-          }),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FloatingActionButton(
+              child: const Icon(Icons.plus_one),
+              onPressed: () {
+                increments();
+              }),
+          FloatingActionButton(
+              child: const Icon(Icons.restore),
+              onPressed: () {
+                restarts();
+              }),
+          FloatingActionButton(
+              child: const Icon(Icons.remove),
+              onPressed: () {
+                reduces();
+              }),
+        ],
+      ),
     );
   }
+
+  void reduces() {
+    setState(() {
+      count--;
+    });
+  }
+
+  void increments() {
+    setState(() {
+      count++;
+    });
+  }
+
+  void restarts() {
+    setState(() {
+      count=0;
+    });
+  }
+
 }
