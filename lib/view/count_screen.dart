@@ -9,6 +9,25 @@ class CountScreen extends StatefulWidget {
 
 class _CountScreenState extends State<CountScreen> {
   int count = 0;
+
+  void increment() {
+    setState(() {
+      count++;
+    });
+  }
+
+  void decrement() {
+    setState(() {
+      count--;
+    });
+  }
+
+  void restart() {
+    setState(() {
+      count=0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,45 +45,46 @@ class _CountScreenState extends State<CountScreen> {
           ],
         ),
       ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          FloatingActionButton(
-              child: const Icon(Icons.plus_one),
-              onPressed: () {
-                increments();
-              }),
-          FloatingActionButton(
-              child: const Icon(Icons.restore),
-              onPressed: () {
-                restarts();
-              }),
-          FloatingActionButton(
-              child: const Icon(Icons.remove),
-              onPressed: () {
-                reduces();
-              }),
-        ],
-      ),
+      floatingActionButton:  ButtonGroup(increment:increment, decrement:decrement, restart:restart),
     );
   }
 
-  void reduces() {
-    setState(() {
-      count--;
-    });
-  }
-
-  void increments() {
-    setState(() {
-      count++;
-    });
-  }
-
-  void restarts() {
-    setState(() {
-      count=0;
-    });
-  }
-
 }
+
+class ButtonGroup extends StatelessWidget {
+  final Function increment;
+  final Function decrement;
+  final Function restart;
+  const ButtonGroup({
+    Key? key,
+    required this.increment,
+    required this.decrement,
+    required this.restart,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        FloatingActionButton(
+            child: const Icon(Icons.plus_one),
+            onPressed: () {
+              increment();
+            }),
+        FloatingActionButton(
+            child: const Icon(Icons.restore),
+            onPressed: () {
+              restart();
+            }),
+        FloatingActionButton(
+            child: const Icon(Icons.remove),
+            onPressed: () {
+              decrement();
+            }),
+      ],
+    );
+  }
+}
+
+
