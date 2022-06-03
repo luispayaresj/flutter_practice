@@ -95,6 +95,8 @@ class ListView1 extends StatelessWidget {
     "name": "Forza Horizon 5"
     }, 
   ];
+
+
   @override
   Widget build(BuildContext context) {
   return  Scaffold(
@@ -106,10 +108,35 @@ class ListView1 extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       itemBuilder: (_,index){
         return ListTile(
-          leading: CircleAvatar(
+          leading: GestureDetector(
+            onTap: () {
+              var snackBar = SnackBar(
+                content: Image(
+                  image: Image.network(_games[index]["image"]!).image
+                )
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
+            child: CircleAvatar(
             backgroundImage: Image.network(_games[index]["image"]!).image
           ),
-          title:Text( _games[index]["name"]!)
+          ),
+          
+          title: GestureDetector(
+            onTap: () {
+              var snackBar = SnackBar(
+                content: Image(
+                  image: Image.network(_games[index]["image"]!).image
+                )
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
+            child: Stack(
+              children:[
+                Text(_games[index]["name"]!),
+              ],
+            )
+          )
         );
 
       }
