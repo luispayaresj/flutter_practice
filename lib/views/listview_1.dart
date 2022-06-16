@@ -108,6 +108,17 @@ class ListView1 extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       itemBuilder: (_,index){
         return ListTile(
+          
+          leading:CircleAvatar(backgroundImage: Image.network(_games[index]["image"]!).image) ,
+          title:Text(_games[index]["name"]!),
+          onTap: () => showDialog<Image>(
+            context:context,
+            builder:(BuildContext context) => AlertDialog(
+              title:Text(_games[index]["name"]!),
+              content:Image(image:Image.network(_games[index]["image"]!).image,
+            )
+          ))
+          /* 
           leading: GestureDetector(
             onTap: () {
               var snackBar = SnackBar(
@@ -136,9 +147,9 @@ class ListView1 extends StatelessWidget {
                 Text(_games[index]["name"]!),
               ],
             )
-          )
+          ) */
         );
-
+        
       }
     
   )
