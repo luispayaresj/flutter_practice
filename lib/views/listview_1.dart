@@ -107,7 +107,9 @@ class ListView1 extends StatelessWidget {
       itemCount: _games.length,
       physics: const BouncingScrollPhysics(),
       itemBuilder: (_,index){
-        return ListTile(
+        return CardCustome();
+        
+        /* ListTile(
           
           leading:CircleAvatar(backgroundImage: Image.network(_games[index]["image"]!).image) ,
           title:Text(_games[index]["name"]!),
@@ -148,11 +150,34 @@ class ListView1 extends StatelessWidget {
               ],
             )
           ) */
-        );
+        ) */;
         
       }
     
   )
   );
+  }
+}
+
+class CardCustome extends StatelessWidget {
+  CardCustome({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return  const Center (
+      child:Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20)),),
+        elevation:2,
+        child: SizedBox(
+        width: 370,
+        height: 120,
+        child: Center(child: Text('Clean Card')),
+        
+        ),
+        
+        
+        ),
+      
+    );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/views/obtenerFireBase.dart';
-import 'package:flutter_application_2/views/profile.dart';
+import 'package:flutter_application_2/views/profile/profile.dart';
 
 
 class Menu extends StatefulWidget {
