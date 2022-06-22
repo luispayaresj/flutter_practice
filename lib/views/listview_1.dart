@@ -100,9 +100,9 @@ class ListView1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
   return  Scaffold(
-    appBar: AppBar(
+    /* appBar: AppBar(
       title: const Text('Lista de Texto'),
-    ),
+    ), */
   body: ListView.builder(
       itemCount: _games.length,
       physics: const BouncingScrollPhysics(),
@@ -171,7 +171,7 @@ class CardCustome extends StatelessWidget {
         child: SizedBox(
         width: 370,
         height: 120,
-        child: Center(child: Text('Clean Card')),
+        child: Center(child: Text('Service')),
         
         ),
         
